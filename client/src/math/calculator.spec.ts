@@ -1,5 +1,6 @@
 import { Calculator } from "./calculator";
 import { cMockSumCallback } from "./mocks/calculator.mocks";
+import { mocked } from 'ts-jest/utils'
 
 describe('Caltulator test', () => {
   describe('Test without mocks', () => {
