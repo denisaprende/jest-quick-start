@@ -11,15 +11,24 @@ describe('ProductHttpClient', () => {
     productClientHttp = new ProductHttpClient();
   })
 
-  describe('without mocking', () => {
+  describe.only('without mocking', () => {
     // only pass if the server in http://localhost:3000/products is running.
     // comment jest.mock('axios');
 
-    it.only('should retrieve all products succesfully', () => {
+    it('should retrieve all products succesfully', () => {
 
       const expected = [{ name: 'computer' }, { name: 'mouse' }];
-      productClientHttp.getProducts().then(res => {
+      return productClientHttp.getProducts().then(res => {
         expect(res.data).toEqual(expected);
+      });
+    })
+
+    it('should retrieve one product succesfully', (done) => {
+
+      const expected = { name : "book"};
+      productClientHttp.getProductById(1).then((res: any) => {
+        expect(res.data).toEqual(expected);
+        done()
       });
     })
   })

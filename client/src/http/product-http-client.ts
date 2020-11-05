@@ -6,4 +6,11 @@ export class ProductHttpClient {
     return await axios.get('http://localhost:3000/products');
   }
 
+  getProductById(id: number) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({ data : { name : "book"}});
+      }, 3000);
+    });
+  }
 }
