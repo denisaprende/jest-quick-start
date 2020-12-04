@@ -18,7 +18,7 @@ describe('ProductHttpClient', () => {
     it('should retrieve all products succesfully', () => {
 
       const expected = [{ name: 'computer' }, { name: 'mouse' }];
-      return productClientHttp.getProducts().then(res => {
+      productClientHttp.getProducts().then(res => {
         expect(res.data).toEqual(expected);
       });
     })
